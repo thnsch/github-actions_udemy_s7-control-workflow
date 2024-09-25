@@ -21,6 +21,7 @@ jobs:
         run: | 
           npm ci
           npm install
+          npm install vite
           npm update
       - name: Lint code
         run: npm run lint
@@ -40,6 +41,7 @@ jobs:
         run: | 
           npm ci
           npm install
+          npm install vite
           npm update
       - name: Test code
         id: run-tests
