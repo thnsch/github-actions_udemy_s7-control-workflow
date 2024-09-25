@@ -21,7 +21,6 @@ jobs:
         run: | 
           npm ci
           npm install
-          npm install vite
           npm update
       - name: Lint code
         run: npm run lint
@@ -41,7 +40,6 @@ jobs:
         run: | 
           npm ci
           npm install
-          npm install vite
           npm update
       - name: Test code
         id: run-tests
@@ -67,6 +65,10 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Install vite
+        if: always()
+        run: | 
+          npm install vite
       - name: Build website
         id: build-website
         run: npm run build
